@@ -1,5 +1,6 @@
 import { useState } from "react";
 import PetList from './component/PetList.jsx'
+import "./App.css";
 
 
 function App() {
@@ -18,7 +19,12 @@ function App() {
   return (
     <div className="App">
       <h1>{name}</h1>
-      <button onClick={() => setName('Welcome to our shop')}>Click</button>
+      <button
+        className="btn btn-success"
+        onClick={() => setName("Welcome to our shop")}
+      >
+        Click
+      </button>
       <PetList pets={pets} />
     </div>
   );
