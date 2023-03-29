@@ -2,6 +2,7 @@ import { useState } from "react";
 import PetList from "./component/PetList.jsx";
 import "./App.css";
 import AddPet from "./component/AddPet.jsx";
+import SearchBar from "./component/SearchBar.jsx";
 
 function App() {
   const [name, setName] = useState("Pet Store");
@@ -20,6 +21,8 @@ function App() {
   const addPet = (pet) => {
     setPets([...pets, pet])
   }
+  
+  const [query, setQuery] = useState("")
   return (
     <div className="App">
       <h1>{name}</h1>
@@ -29,7 +32,8 @@ function App() {
       >
         Click
       </button>
-      <PetList pets={pets} />
+      <SearchBar setQuery={ setQuery} />
+      <PetList pets={pets} query={ query} />
       <AddPet addPet={ addPet} />
     </div>
   );

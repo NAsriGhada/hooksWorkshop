@@ -1,6 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 
 const PetCard = ({ el }) => {
+  const [status, setStatus] = useState(el.status)
+  const handleAdopt = () => {
+    setStatus('adopted')
+  }
   return (
     <div>
       <div className="card mb-3" style={{ maxWidth: "540px" }}>
@@ -14,6 +18,8 @@ const PetCard = ({ el }) => {
               <p className="card-text">Race: {el.race}</p>
               <p className="card-text">Type:{el.type}</p>
               <p className="card-text">Location: {el.location}</p>
+              <p>Status: {status}</p>
+              {status === 'available' && ( <button className="btn btn-warning" onClick={() => handleAdopt()}>Adopt</button>)}
             </div>
           </div>
         </div>

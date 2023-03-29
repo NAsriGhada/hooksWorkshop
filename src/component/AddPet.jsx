@@ -6,6 +6,7 @@ const AddPet = ({ addPet }) => {
     const [type, setType] = useState('')
     const [location, setLocation] = useState('')
     const [photo, setPhoto] = useState('')
+    const [status, setStatus] = useState('')
 
     const [inputValue, setInputValue] = useState('')
 
@@ -14,12 +15,14 @@ const AddPet = ({ addPet }) => {
         setInputValue(e.target.value)
     }
   return (
+    <div>
+      <hr />
       <div>
-          <div>
-              <label>Type something:</label>
-              <input type="text" value={inputValue} onChange={handleChange} />
-              <p>You typed: { inputValue}</p>
-          </div>
+        <label>Type something:</label>
+        <input type="text" value={inputValue} onChange={handleChange} />
+        <p>You typed: {inputValue}</p>
+      </div>
+      <hr />
       <form>
         <div className="mb-3">
           <label>Name</label>
@@ -61,10 +64,24 @@ const AddPet = ({ addPet }) => {
             value={photo}
           />
         </div>
-              <button className="btn btn-success" onClick={(e) => {
-                  e.preventDefault();
-                  addPet({ name, race, type, location, photo })
-              }}>Add Pet</button>
+        <div>
+          <label>Status:</label>
+          <input
+            type="text"
+            placeholder="type the status"
+            onChange={(e) => setStatus(e.target.value)}
+            value={status}
+          />
+        </div>
+        <button
+          className="btn btn-success"
+          onClick={(e) => {
+            e.preventDefault();
+            addPet({ name, race, type, location, photo });
+          }}
+        >
+          Add Pet
+        </button>
       </form>
     </div>
   );
