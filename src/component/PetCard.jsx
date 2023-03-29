@@ -19,7 +19,7 @@ const PetCard = ({ el }) => {
               <p className="card-text">Type:{el.type}</p>
               <p className="card-text">Location: {el.location}</p>
               <p>Status: {status}</p>
-              {status === 'available' && ( <button className="btn btn-warning" onClick={() => handleAdopt()}>Adopt</button>)}
+              {status === 'available' &&  <button className="btn btn-warning" onClick={() => handleAdopt()}>Adopt</button>}
             </div>
           </div>
         </div>
